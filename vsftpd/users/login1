@@ -1,0 +1,5 @@
+local_root=/home/vsftpd/test1
+anon_upload_enable=YES # разрешим аплоад
+anon_mkdir_write_enable=YES # разрешим создание и удаление каталогов в своем каталоге
+anon_other_write_enable=YES # разрешим удаление файлов
+chroot_local_user=YES # Не даём вылазить за пределы своего домашнего каталога

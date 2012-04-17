@@ -1,0 +1,19 @@
+#Установка vsftpd и Berkeley DB
+# apt-get install vsftpd
+# apt-get install db4.8-util
+
+#Далее создадим папку с дополнительными настройками /etc/vsftpd и файл /etc/vsftpd/logins.txt с помощью которого добавляются пользователи (в формате имя *новая строка* парполь)
+#mkdir /etc/vsftpd && nano /etc/vsftpd/logins.txt
+
+#С помощью скрипта /etc/vsftpd/useradd.sh пользователи добавляются в БД
+# chmod +x /etc/vsftpd/useradd.sh
+
+#В папке /etc/vsftpd/users можно задавать дополнительные настройки пользователя (создается файл с именем и задаются настройки аналогично с /etc/vsftpd.conf
+
+#Создание службы PAM (nano /etc/pam.d/vsftpd.virtual)
+
+#Теперь, чтобы PAM мог корректно аутентифицировать виртуальных пользователей vsftpd, необходимо создать соответствующую службу. В каталоге /etc/pam.d создадим файл с именем, указанным в параметре pam_service_name файла /etc/vsftpd.conf
+#
+#Для просмотра БД нужно просмотреть файл users.db 
+#db4.8_dump -p users.db | less
+
